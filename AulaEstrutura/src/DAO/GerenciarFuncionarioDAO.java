@@ -38,10 +38,55 @@ public class GerenciarFuncionarioDAO implements ListaEnc{
         
     }
 
+    /*
+    1 - Verificar se a lista está vazia
+    2 - Instanciar nó auxiliar (anterior) como nulo (null)
+    3 - Instanciar nó atual com a primeira posição da lista
+    4 - Criar estrutura de repetição que verificará se o nó atual é diferente de null e que tem
+    o nome do funcionário diferente da chave de busca.
+    5 - Guardar o nó atual na instancia do nó anterior e retornará ao nó atual o próximo nó
+    6 - Verifica se o nó atual é null e mostra falha na exclusão por registro não encontrado
+    7 - Verifica se o nó anteriror é nulo: se for verdadeira a condição, significa que o valor a ser
+    excluído tá na primeira posição
+    */
     @Override
     public void remover(String nome) {
     
+        if (eVazia()) {
+            
+            System.out.println("Não há registros para remover!");
+            
+        }else {
         
+            No anterior = null;
+            No atual = this.primeiro;
+            
+            while(atual != null && !atual.getFuncionario().getNome().equals(nome)) {
+            
+                anterior = atual;
+                atual = atual.getProximoNo();
+            
+            }
+            
+            if (atual == null) {
+                
+                System.out.println("Falha da exclusão: Registro não encontrado!");
+                
+            }
+            
+            if (anterior == null) {
+                
+                this.primeiro = atual.getProximoNo();
+                System.out.println("Registro excluído! Tipo 1");
+                
+            }else {
+            
+                anterior.setProximoNo(atual.getProximoNo());
+                System.out.println("Registro excluído! Tipo 2");
+                
+            }
+            
+        }
         
     }
 
@@ -78,10 +123,26 @@ public class GerenciarFuncionarioDAO implements ListaEnc{
         
     }
 
+    /*
+    1 - Laço para localização do funcionário que terá os dados alterados (chave = nome)
+    2 - Novo objeto funcionário é inserido no lugar do antigo
+    3 - Mensagem de alteração é exibida para o usuário
+    4 - Laço é interrompido
+    */
     @Override
     public void alterar(String nome, Funcionario funcionario) {
     
-        
+        for (No no = this.primeiro; no != null; no = no.getProximoNo()) {
+            
+            if (no.getFuncionario().getNome().equals(nome)) {
+                
+                no.setFuncionario(funcionario);
+                System.out.println("Alteração realizada com sucesso!");
+                break;
+                
+            }
+            
+        }
         
     }
  
@@ -98,7 +159,7 @@ public class GerenciarFuncionarioDAO implements ListaEnc{
             System.out.print(no.getFuncionario().getNome() + "->");
             
         }
-        
+    
         System.out.println("");
         
     }
