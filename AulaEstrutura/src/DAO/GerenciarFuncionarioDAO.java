@@ -16,6 +16,16 @@ public class GerenciarFuncionarioDAO implements ListaEnc{
         
     }
 
+    /*
+    Método para inserir na lista
+    1 - Instanciar um novo No
+    2 - Verificar se a lista está vazia
+    3 - Se tiver vazia: add novo No na primeira posição
+    4 - Senão tiver vazia: add novo No no próximo indicador da última posição
+    5 - Adicionar o novo No no atributo último nó
+    6 - Incrementar a quantidade de nós
+    7 - Notificar registro com secesso
+    */
     @Override
     public void add(Funcionario funcionario) {
         
