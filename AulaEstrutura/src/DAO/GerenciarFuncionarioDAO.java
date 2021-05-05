@@ -65,4 +65,14 @@ public class GerenciarFuncionarioDAO implements ListaEnc{
         
     }
     
+    public void imprimirLista() {
+    
+        for (No no = this.primeiro; no != null; no.getProximoNo()) {
+            
+            
+            
+        }
+        
+    }
+    
 }
