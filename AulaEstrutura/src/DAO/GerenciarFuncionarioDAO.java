@@ -147,12 +147,20 @@ public class GerenciarFuncionarioDAO implements ListaEnc{
         
     }
  
+    /*
+    Método para verificar se a lista está vazia
+    */
     public boolean eVazia(){
         
         return (this.primeiro == null);
         
     }
     
+    /*
+    Método para imprimir os nomes dos funcionários guardados na lista
+    1 - Realizar um loop (For) começando do primeiro Nó até o último da lista
+    2 - Imprimir o nome do funcionário
+    */
     public void imprimirLista() {
     
         for (No no = this.primeiro; no != null; no.getProximoNo()) {
