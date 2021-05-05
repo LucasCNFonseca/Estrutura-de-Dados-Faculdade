@@ -48,6 +48,7 @@ public class GerenciarFuncionarioDAO implements ListaEnc{
     6 - Verifica se o nó atual é null e mostra falha na exclusão por registro não encontrado
     7 - Verifica se o nó anteriror é nulo: se for verdadeira a condição, significa que o valor a ser
     excluído tá na primeira posição
+    8 - Senão a instancia anterior receberá o próximo nó do nó excluído.
     */
     @Override
     public void remover(String nome) {
